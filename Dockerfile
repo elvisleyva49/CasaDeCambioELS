@@ -16,5 +16,5 @@ RUN pip install -r requirements.txt
 # Copia el resto de los archivos de la aplicación al contenedor
 COPY . .
 
-# Define el comando para iniciar la aplicación
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Define el comando para iniciar la aplicación con gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
