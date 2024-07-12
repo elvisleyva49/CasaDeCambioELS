@@ -1,5 +1,5 @@
-# Usa una imagen base de Python
-FROM python:3.11-slim
+# Usa una imagen base de Python 3.10
+FROM python:3.10-slim
 
 # Instala las dependencias del sistema necesarias para pyodbc
 RUN apt-get update && \
