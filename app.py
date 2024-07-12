@@ -1,17 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import pyodbc
-# from config import server, database, username, password, driver
+from config import server, database, username, password, driver
 from decimal import Decimal, ROUND_HALF_UP
 from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-
-server = os.getenv('DB_SERVER')
-database = os.getenv('DB_NAME')
-username = os.getenv('DB_USERNAME')
-password = os.getenv('DB_PASSWORD')
-driver = os.getenv('DB_DRIVER')
 
 # Configuración de conexión a la base de datos
 connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
