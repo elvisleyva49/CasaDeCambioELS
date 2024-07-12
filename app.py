@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import pyodbc
-from config import server, database, username, password, driver
+# from config import server, database, username, password, driver
 from decimal import Decimal, ROUND_HALF_UP
 from datetime import datetime
 
