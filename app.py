@@ -38,6 +38,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        cursor = None
 
         try:
             conn = pyodbc.connect(connection_string)
