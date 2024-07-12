@@ -39,6 +39,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         cursor = None
+        conn = None
 
         try:
             conn = pyodbc.connect(connection_string)
