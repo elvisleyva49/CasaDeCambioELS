@@ -1,17 +1,17 @@
 # Usa una imagen base de Python 3.10
 FROM python:3.10-slim
 
-# Instala las dependencias del sistema necesarias para pyodbc
-RUN apt-get update && \
-    apt-get install -y gcc g++ unixodbc-dev curl
-
-# Descarga e instala el ODBC Driver 17 para SQL Server
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
-    curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
-    apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql17
-
 # Establece el directorio de trabajo en /app
 WORKDIR /app
+
+# Instala las dependencias del sistema necesarias para pyodbc
+RUN apt-get update && \
+    apt-get install -y gcc g++ unixodbc-dev curl gnupg2
+
+# Descarga e instala el ODBC Driver 17 para SQL Server
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql17
 
 # Copia los archivos requirements.txt y los instala
 COPY requirements.txt requirements.txt
