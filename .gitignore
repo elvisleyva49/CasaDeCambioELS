@@ -6,6 +6,7 @@ __pycache__/
 # Ignore virtual environment
 env/
 venv/
+myvenv/
 
 # Ignore configuration files
 *.env
